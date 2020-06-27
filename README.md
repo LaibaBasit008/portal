@@ -15,21 +15,24 @@ Setup for developers (Unix)
 ---------------------------
 
 1. Make sure you have installed Python 3.6, [pip3](https://pip.pypa.io/en/latest/) and [virtualenv](http://www.virtualenv.org/en/latest/).
-1. If working behind a proxy, make sure your environment variables are properly set up. If
+2. If working behind a proxy, make sure your environment variables are properly set up. If
    you still get an error due to proxy, use "-E" flag along with "sudo" to export all the
    environment variables.
-1. Make sure you have python3-dev installed on your operating system. For Debian, you would additionally require libpq-dev.
+3. Make sure you have python3-dev installed on your operating system. For Debian, you would additionally require libpq-dev.
    Install by using `sudo apt-get install libpq-dev python3-dev`
-1. Make sure you have PostgreSQL installed. For a tutorial on installing
+4. Make sure you have PostgreSQL installed. For a tutorial on installing
    Postgres, [Django Girls'](http://djangogirls.org) ebook,
    [Tutorials Extension](http://djangogirls.org/resources/), is a reference.
    The info is also on [Django Girls GitHub repository](https://github.com/DjangoGirls/tutorial-extensions/blob/master/en/optional_postgresql_installation/README.md).
-1. Clone the repo - `git clone https://github.com/systers/portal.git` and cd into
+5. Clone the repo - `git clone https://github.com/systers/portal.git` and cd into
   the `portal` directory. If working behind a proxy, follow the instructions [here](https://cms-sw.github.io/tutorial-proxy.html).
-1. Create a virtual environment with Python 3 and install dependencies:
+6. Create a virtual environment with Python 3.6 and install dependencies:
 
      ```bash
+     $ virtualenv -p python3.6 venv
+     `incase of path error use the following command`
      $ virtualenv venv --python=/path/to/python3
+     $ echo $PATH=python3.6  (to find path/to/python3.6)
      $ source venv/bin/activate
      $ pip install -r requirements/dev.txt
      $ sudo apt-get install python-gdal
@@ -43,20 +46,20 @@ Setup for developers (Unix)
     $ \c systersdb;
     $ GRANT ALL PRIVILEGES ON DATABASE systersdb to <the name>;
     ```
-1. Fill in the database details in `systers_portal/settings/dev.py`.
-1. Run `export SECRET_KEY=foobarbaz` in your terminal, ideally the secret key
+8. Fill in the database details in `systers_portal/systers_portal/settings/dev.py`. Fill `Username` and `Password` values set while creating `systerdb` database in Step 6.
+9. Run `export SECRET_KEY=foobarbaz` in your terminal, ideally the secret key
   should be 40 characters long, unique and unpredictable. Optionally to set the
   shell variable every time you activate the virtualenv, edit `venv/bin/activate`
   and add to the bottom the export statement.
-1. Run `python systers_portal/manage.py migrate`.
-1. Run `python systers_portal/manage.py cities_light` for downloading and importing data for django-cities-light.
-1. Run `python systers_portal/manage.py createsuperuser` to create a superuser for the admin panel.
+10. Run `python systers_portal/manage.py migrate`.
+11. Run `python systers_portal/manage.py cities_light` for downloading and importing data for django-cities-light.
+12. Run `python systers_portal/manage.py createsuperuser` to create a superuser for the admin panel.
   Fill in the details asked.
-1. Run `python systers_portal/manage.py runserver` to start the development server. When in testing
+13. Run `python systers_portal/manage.py runserver` to start the development server. When in testing
   or production, feed the respective settings file from the command line, e.g. for
   testing `python systers_portal/manage.py runserver --settings=systers_portal.settings.testing`.
-1. Before commiting run `flake8 systers_portal` and fix PEP8 warnings.
-1. Run `python systers_portal/manage.py test --settings=systers_portal.settings.testing`
+14. Before commiting run `flake8 systers_portal` and fix PEP8 warnings.
+15. Run `python systers_portal/manage.py test --settings=systers_portal.settings.testing`
   to run all the tests.
 
 
@@ -75,21 +78,21 @@ Setup for developers (Windows)
 - Tick create shortcuts for installed applications
 - Precomplie standard libary
 - Select install location and hit install
-1. Run `pip install virtualenv` using windows command line
-1. You would have to install PostgreSQL. Download from [official location](https://www.postgresql.org/download/windows/) or alternative location, you could lookup some PostgreSQL tutorials online if you are completely blank on this. 
-1. Clone the repo - `git clone https://github.com/systers/portal.git` and cd into the `portal` directory. Use git CMD or git Bash(unix-like terminal) to do so.
-1. Create a virtual environment with Python 3 and install dependencies, using CMD :
- 
+2. Run `pip install virtualenv` using windows command line
+3. You would have to install PostgreSQL. Download from [official location](https://www.postgresql.org/download/windows/) or alternative location, you could lookup some PostgreSQL tutorials online if you are completely blank on this.
+4. Clone the repo - `git clone https://github.com/systers/portal.git` and cd into the `portal` directory. Use git CMD or git Bash(unix-like terminal) to do so.
+5. Create a virtual environment with Python 3.6 and install dependencies, using CMD :
+
      ```bash
      $ virtualenv venv
      $ ./venv/Scripts/activate
-     $ pip install -r requirements/dev.txt 
+     $ pip install -r requirements/dev.txt
      ```
-1. Make sure you have GDAL installed. 
+6. Make sure you have GDAL installed.
 - Download OSGeo4W using the [OSGeo4W installer](https://trac.osgeo.org/osgeo4w/wiki)
 - Specifically, install pkg-gdal-python, which is within 'Libs' in the installer tree.
-- Add GDAL_LIBRARY_PATH in the `systers_portal/settings/base.py` and make sure the path points to the GDAL Library on your local machine.
-6. Create `systersdb` database, where `systersdb` might be any suitable name.
+- Add GDAL_LIBRARY_PATH in the `systers_portal/systers_portal/settings/base.py` and make sure the path points to the GDAL Library on your local machine.
+7. Create `systersdb` database, where `systersdb` might be any suitable name.
 - Open the SQL Shell for postgresql from the windows start menu or wherever accessible
 
     ```
@@ -103,18 +106,18 @@ Setup for developers (Windows)
     $ \c systersdb;
     $ GRANT ALL PRIVILEGES ON systersdb TO <username created above>;
     ```
-1. Fill in the database details in `systers_portal/settings/dev.py`.
-1. Run `set SECRET_KEY=foobarbaz` in your terminal, ideally the secret key
-  should be 40 characters long, unique and unpredictable. 
-1. Run `python systers_portal/manage.py migrate`.
-1. Run `python systers_portal/manage.py cities_light` for downloading and importing data for django-cities-light.
-1. Run `python systers_portal/manage.py createsuperuser` to create a superuser for the admin panel.
+8. Fill in the database details in `systers_portal/systers_portal/settings/dev.py`.Fill `Username` and `Password` values set while creating `systerdb` database in Step 7.
+9. Run `set SECRET_KEY=foobarbaz` in your terminal, ideally the secret key
+  should be 40 characters long, unique and unpredictable.
+10. Run `python systers_portal/manage.py migrate`.
+11. Run `python systers_portal/manage.py cities_light` for downloading and importing data for django-cities-light.
+12. Run `python systers_portal/manage.py createsuperuser` to create a superuser for the admin panel.
   Fill in the details asked.
-1. Run `python systers_portal/manage.py runserver` to start the development server. When in testing
+13. Run `python systers_portal/manage.py runserver` to start the development server. When in testing
   or production, feed the respective settings file from the command line, e.g. for
   testing `python systers_portal/manage.py runserver --settings=systers_portal.settings.testing`.
-1. Before commiting run `flake8 systers_portal` and fix PEP8 warnings.
-1. Run `python systers_portal/manage.py test --settings=systers_portal.settings.testing`
+14. Before commiting run `flake8 systers_portal` and fix PEP8 warnings.
+15. Run `python systers_portal/manage.py test --settings=systers_portal.settings.testing`
   to run all the tests.
 
 Congratulations! you just set up the Systers Portal on you windows dev enviroment. If you face any issues while installing and making Portal up in your local, have a look at issues labelled as [While Setting up Portal](https://github.com/systers/portal/labels/While%20Setting%20up%20Portal).
