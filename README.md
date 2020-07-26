@@ -34,7 +34,7 @@ Setup for developers (Unix)
      $ pip install -r requirements/dev.txt
      $ sudo apt-get install python-gdal
      ```
-1. Create `systersdb` database, where `systersdb` might be any suitable name.
+1. Create `systersdb` database, where `systersdb` might be any suitable name [Password should not be empty].
     ```
     $ sudo -i -u postgres
     $ createuser <any name e.g. alice> --pwprompt
@@ -180,3 +180,9 @@ For more information on semantics and builds, please refer to the Sphinx
 [official documentation](http://sphinx-doc.org/contents.html).
 
 You can view the requirements document [here](docs/requirements/Systers_GSoC14_Portal_Requirements.pdf).
+
+
+Contact
+-------
+
+You can reach the maintainers and our community on [AnitaB.org Open Source Zulip](https://anitab-org.zulipchat.com/). If you are interested in contributing to portal, we have a dedicated stream for this project [#portal](https://anitab-org.zulipchat.com/#narrow/stream/222540-portal), where you can ask questions and interact with the community, join with us!

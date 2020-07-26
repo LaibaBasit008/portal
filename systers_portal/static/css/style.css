@@ -16,12 +16,12 @@
   margin-bottom: 15px;
 }
 
-.mr4 {
-  margin-right: 4px;
+.mr16 {
+  margin-right: 16px;
 }
 
-.ml15 {
-  margin-left: 15px;
+.ml16 {
+  margin-left: 16px;
 }
 
 /* Sticky footer styles
@@ -361,7 +361,7 @@ input {
   width: 30%;
 }
 
-#meetup-location-input,#location-input {
+#location-input {
   width: 15%;
   font-style: italic;
   font-family: 'Cairo';
@@ -635,7 +635,7 @@ table.decoration-none  tr a {
   font-size: 1.0em;
   line-height: 1.0em;
 }
-  
+
 .edit .delete {
     background-color: #fff;
     color: black;
@@ -647,7 +647,7 @@ table.decoration-none  tr a {
 
 .commentbox .details{
   text-decoration: none;
-  
+
 /*  webkit-text-size-adjust: 100%;*/
 }
 
@@ -749,4 +749,44 @@ table.decoration-none  tr a {
     #user-dropdown-menu {
         display: none;
     }
+}
+input[id=form1] {
+  width: 100%;
+  height: 40px;
+}
+
+
+.thumbnail {
+    background-color: #F0FFFF;
+}
+
+input[id=keyword-input]{
+  height: 30px;
+  font-family: 'Cairo';
+  background-color: white;
+  border-bottom: 1px solid black;
+}
+
+select[id=location]{
+  height: 30px;
+  font-family: 'Cairo';
+  background-color: white;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+input[id=go-btn]{
+  height:30px;
+  font-family: 'Cairo';
+}
+
+li[id=nav-menu]:hover{
+  background-color:#54bceb;
+}
+
+@media only screen and (min-width: 768px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
 }
