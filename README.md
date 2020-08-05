@@ -14,7 +14,7 @@ If you are interested in learning more about this project, start with reading [P
 Setup for developers (Unix)
 ---------------------------
 
-1. Make sure you have installed Python 3.6, [pip3](https://pip.pypa.io/en/latest/) and [virtualenv](http://www.virtualenv.org/en/latest/).
+1. Make sure you have installed Python 3.6 or 3.7, [pip3](https://pip.pypa.io/en/latest/) and [virtualenv](http://www.virtualenv.org/en/latest/).
 2. If working behind a proxy, make sure your environment variables are properly set up. If
    you still get an error due to proxy, use "-E" flag along with "sudo" to export all the
    environment variables.
@@ -24,7 +24,7 @@ Setup for developers (Unix)
    Postgres, [Django Girls'](http://djangogirls.org) ebook,
    [Tutorials Extension](http://djangogirls.org/resources/), is a reference.
    The info is also on [Django Girls GitHub repository](https://github.com/DjangoGirls/tutorial-extensions/blob/master/en/optional_postgresql_installation/README.md).
-5. Clone the repo - `git clone https://github.com/systers/portal.git` and cd into
+5. Clone the repo - `git clone https://github.com/anitab-org/portal.git` and cd into
   the `portal` directory. If working behind a proxy, follow the instructions [here](https://cms-sw.github.io/tutorial-proxy.html).
 6. Create a virtual environment with Python 3.6 and install dependencies:
 
@@ -37,7 +37,7 @@ Setup for developers (Unix)
      $ pip install -r requirements/dev.txt
      $ sudo apt-get install python-gdal
      ```
-1. Create `systersdb` database, where `systersdb` might be any suitable name [Password should not be empty].
+7. Create `systersdb` database, where `systersdb` might be any suitable name [Password should not be empty].
     ```
     $ sudo -i -u postgres
     $ createuser <any name e.g. alice> --pwprompt
@@ -46,7 +46,7 @@ Setup for developers (Unix)
     $ \c systersdb;
     $ GRANT ALL PRIVILEGES ON DATABASE systersdb to <the name>;
     ```
-8. Fill in the database details in `systers_portal/systers_portal/settings/dev.py`. Fill `Username` and `Password` values set while creating `systerdb` database in Step 6.
+8. Fill in the database details in `systers_portal/systers_portal/settings/dev.py`.
 9. Run `export SECRET_KEY=foobarbaz` in your terminal, ideally the secret key
   should be 40 characters long, unique and unpredictable. Optionally to set the
   shell variable every time you activate the virtualenv, edit `venv/bin/activate`
@@ -69,7 +69,7 @@ If you face some issues while installing and making Portal up in your local, hav
 Setup for developers (Windows)
 ------------------------------
 
-1. Make sure you have installed Python 3.6, make sure you the right one (32/64 bits). [Source](https://www.python.org/downloads/). During installation please pay attention to the following details :
+1. Make sure you have installed Python 3.6 or 3.7, make sure you the right one (32/64 bits). [Source](https://www.python.org/downloads/). During installation please pay attention to the following details :
 - Tick/Select Add Python 3.6 to PATH
 - Select Customize Installation (this is important)
 - **Tick/Select pip (others, leave as default), this is important**
@@ -106,7 +106,7 @@ Setup for developers (Windows)
     $ \c systersdb;
     $ GRANT ALL PRIVILEGES ON systersdb TO <username created above>;
     ```
-8. Fill in the database details in `systers_portal/systers_portal/settings/dev.py`.Fill `Username` and `Password` values set while creating `systerdb` database in Step 7.
+8. Fill in the database details in `systers_portal/systers_portal/settings/dev.py`. Fill `Username` and `Password` values set while creating `systerdb` database in Step 7.
 9. Run `set SECRET_KEY=foobarbaz` in your terminal, ideally the secret key
   should be 40 characters long, unique and unpredictable.
 10. Run `python systers_portal/manage.py migrate`.
